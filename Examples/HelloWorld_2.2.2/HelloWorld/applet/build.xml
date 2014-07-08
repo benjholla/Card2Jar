@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
+-->
+
+<!--
+-->
+<project name="Java Card 3.0 Classic Edition Samples [Hello World]"
+         default="all"
+         basedir=".">
+    <!-- import the common file, which has taskdefs and required dirs -->
+    <import file="../../build_common.xml" />
+
+    <!--
+    Sample directory is the sample name.
+    All files (cap, jca, scr, exp) will be generated in build folder with this name
+    -->
+    <basename file="${basedir}" property="sample.name" />
+
+
+
+    <!-- -->
+    <target name="clean">
+        <delete dir="./build" />
+    </target>
+
+    <!-- -->
+    <target name="init">
+        <mkdir dir="./build/classes" />
+    </target>
+
+    <!-- -->
+    <target name="compile_applet" depends="init">
+        <javac srcdir="./src"
+               destdir="./build/classes"
+               source="6"
+               target="6"
+               debug="yes"
+               optimize="yes">
+            <classpath refid="jc_jars" />
+        </javac>
+    </target>
+
+    <!-- -->
+    <target name="convert_applet" depends="compile_applet">
+        <convert dir="./build/classes" Configfile="${sample.name}.opt">
+            <classpath refid="jc_jars" />            
+        </convert>
+        <copy todir="./build" flatten="true">
+            <fileset dir="./build/classes">
+                <include name="**/*.cap" />
+                <include name="**/*.jca" />
+                <include name="**/*.exp" />
+            </fileset>
+            <regexpmapper from="(.*)\.(.*)"
+                          to="${sample.name}.\2"
+                          casesensitive="yes" />
+        </copy>
+    </target>
+
+    <!-- -->
+    <target name="generate_script" depends="convert_applet">
+        <scriptgen capfile="./build/${sample.name}.cap"
+                   outfile="./build/scr.txt">
+            <classpath refid="jc_jars" />
+        </scriptgen>
+        <concat destfile="./build/${sample.name}.scr">
+            <filelist dir="../../" files="powerup.scr" />
+            <filelist dir="./build" files="scr.txt" />
+            <filelist dir="../" files="helloworld.scr" />
+            <filelist dir="../../" files="powerdown.scr" />
+        </concat>
+        <delete>
+            <fileset dir="./build" includes="*.cap, *.jca, *.exp, *.txt" />
+        </delete>
+    </target>
+
+    <!-- -->
+    <target name="run" depends="generate_script">
+	<java classname="com.sun.javacard.apdutool.Main" output="${redirect.output}">
+	    <arg value="-nobanner"/>
+            <arg value="-noatr"/>
+	    <arg value="build/${sample.name}.scr"/>
+            <classpath refid="jc_jars" />
+	</java>
+    </target>
+        
+    <!-- -->
+    <target name="all" depends="run" />
+
+
+</project>
