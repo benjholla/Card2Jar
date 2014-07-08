@@ -1,0 +1,41 @@
+com/sun/javacard/samples/HelloWorld/javacard/Header.cap :
+ 01 00 13 de ca ff ed 01 02 04 00 01 09 a0 00 00
+ 00 62 03 01 0c 01
+com/sun/javacard/samples/HelloWorld/javacard/Directory.cap :
+ 02 00 1f 00 13 00 1f 00 0e 00 15 00 36 00 0c 00
+ 67 00 0a 00 13 00 00 00 6c 00 00 00 00 00 00 02
+ 01 00
+com/sun/javacard/samples/HelloWorld/javacard/Applet.cap :
+ 03 00 0e 01 0a a0 00 00 00 62 03 01 0c 01 01 00
+ 14
+com/sun/javacard/samples/HelloWorld/javacard/Import.cap :
+ 04 00 15 02 03 01 07 a0 00 00 00 62 01 01 00 01
+ 07 a0 00 00 00 62 00 01
+com/sun/javacard/samples/HelloWorld/javacard/ConstantPool.cap :
+ 05 00 36 00 0d 02 00 00 00 06 80 03 00 03 80 03
+ 01 01 00 00 00 06 00 00 01 03 80 0a 01 03 80 0a
+ 06 06 80 10 02 03 80 0a 03 03 80 0a 07 03 80 0a
+ 09 03 80 0a 04 03 80 0a 05
+com/sun/javacard/samples/HelloWorld/javacard/Class.cap :
+ 06 00 0c 00 80 03 01 00 01 07 01 00 00 00 1f
+com/sun/javacard/samples/HelloWorld/javacard/Method.cap :
+ 07 00 67 00 02 10 18 8c 00 01 18 11 01 00 90 0b
+ 87 00 18 8b 00 02 7a 02 30 8f 00 03 3d 8c 00 04
+ 3b 7a 05 23 19 8b 00 05 2d 19 8b 00 06 32 03 29
+ 04 1f 65 1b 1a 08 ad 00 16 04 1f 8d 00 07 3b 16
+ 04 1f 41 29 04 19 08 8b 00 08 32 70 e6 19 8b 00
+ 09 3b 19 16 04 08 41 8b 00 0a 19 03 08 8b 00 0b
+ 19 ad 00 03 16 04 8b 00 0c 7a
+com/sun/javacard/samples/HelloWorld/javacard/StaticField.cap :
+ 08 00 0a 00 00 00 00 00 00 00 00 00 00
+com/sun/javacard/samples/HelloWorld/javacard/RefLocation.cap :
+ 09 00 13 00 03 0e 26 2b 00 0c 05 0c 06 04 08 05
+ 11 0c 07 09 06 09
+com/sun/javacard/samples/HelloWorld/javacard/Descriptor.cap :
+ 0b 00 6c 01 00 01 00 00 00 00 01 00 03 00 02 00
+ 00 00 00 1c 00 84 00 01 00 1e 00 11 00 00 00 00
+ 01 09 00 14 00 30 00 09 00 00 00 00 07 01 00 1f
+ 00 33 00 46 00 00 00 00 00 0d 00 1c 00 1e 00 1e
+ ff ff 00 1e 00 1c 00 20 00 22 00 26 00 20 00 28
+ 00 2a 00 2d 01 b0 01 10 01 40 06 b4 b4 44 02 44
+ 02 41 03 44 10 04 b4 41 04 b4 31 06 68 00 a1
