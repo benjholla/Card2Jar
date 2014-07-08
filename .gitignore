@@ -1,4 +1,9 @@
 Card2Jar/*.class
+Card2JarTest/*.class
+
+# ignore the binary eclipse build files
+Card2Jar/bin
+Card2JarTest/bin
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -8,9 +13,6 @@ hs_err_pid*
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-
-# ignore the binary eclipse build files
-Card2Jar/bin
 
 # temp OS files
 .DS_Store
