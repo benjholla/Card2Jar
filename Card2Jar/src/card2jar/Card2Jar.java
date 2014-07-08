@@ -53,13 +53,16 @@ public class Card2Jar {
 		args.add(expFile.getAbsolutePath());
 		
 		// set up api export files path
+		// resources directory is a little tricky because this may be in a jar called from another executing location at runtime
 		args.add("--exportpath");
-		args.add(new File("resources" + File.separatorChar + "api_export_files").getAbsolutePath());
+		File root = new File(Card2Jar.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParentFile();
+		File resourceDirectory = new File(root.getAbsolutePath() + File.separatorChar + "resources");
+		args.add(new File(resourceDirectory.getAbsolutePath() + File.separatorChar + "api_export_files").getAbsolutePath());
 		
 		// set up byte code output directory
 		args.add("--keepall");
 		args.add(outputDirectory.getAbsolutePath());
-
+		
 		// run the normalizer
 		return com.sun.javacard.normalizer.Main.execute(args.toArray(new String[args.size()]), true);
 	}
